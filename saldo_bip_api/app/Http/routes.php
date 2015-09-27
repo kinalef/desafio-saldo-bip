@@ -13,7 +13,11 @@
 
 Route::get('/', function () {
 	
-    return view('welcome');
+    return view('index');
+});
+Route::get('/api', function () {
+	
+    return view('index');
 });
 Route::group(['prefix' => 'api', 'namespace' => 'api', 'middleware' => 'cors'], function () {
     Route::resource('tarjeta', 'TarjetaController');
