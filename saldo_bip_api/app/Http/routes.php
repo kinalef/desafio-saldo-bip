@@ -15,7 +15,7 @@ Route::get('/', function () {
 	
     return view('welcome');
 });
-Route::group(['namespace' => 'api', 'middleware' => 'cors'], function () {
-    Route::resource('/tarjeta', 'TarjetaController');
+Route::group(['prefix' => 'api', 'namespace' => 'api', 'middleware' => 'cors'], function () {
+    Route::resource('tarjeta', 'TarjetaController');
 });
 
