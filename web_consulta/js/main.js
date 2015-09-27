@@ -1,53 +1,58 @@
-$(document)
-    .ready(function() {
+$(document).ready(function() {
 
-    	$('#respuesta').hide();
+	$('#respuesta').hide();
+	
+	$('.ui.form').form({  
+        num_tarjeta: {
+          identifier  : 'num_tarjeta',
+          rules: [
+            {
+              type   : 'empty',
+              prompt : 'Por favor ingresa un número'
+            },
+            {
+              type   : 'number',
+              prompt : 'Por favor ingresa un valor numérico'
+            }
+          ]
+        }
+	    }, { onSuccess: submitForm });        	
+	        	
+	function submitForm(event) {
 		
-		$('.ui.form').form({  
-	        num_tarjeta: {
-	          identifier  : 'num_tarjeta',
-	          rules: [
-	            {
-	              type   : 'empty',
-	              prompt : 'Por favor ingresa un número'
-	            },
-	            {
-	              type   : 'number',
-	              prompt : 'Por favor ingresa un valor numérico'
-	            }
-	          ]
-	        }
-		    }, { onSuccess: submitForm });        	
-		        	
-		function submitForm(event) {
 
-			event.preventDefault();
-			
-		   	var num_tarjeta = $("#num_tarjeta" ).val();
+		event.preventDefault();
+		console.log($("#spinner"));
 
-			    $.ajax({
-			        url: 'http://saldobip.kinalef.cl/api/tarjeta/'+num_tarjeta,
-			        async : false,
-			        type: 'GET',
-			        dataType: 'json',
-			        success: function(data) {
+		$('#spinner').addClass('active');
+		
+	   	var num_tarjeta = $("#num_tarjeta" ).val();
 
-			        	$('#respuesta').show();
-			        	
-			        	if(data.code != 200){
-			        		$('#msg-alerta').append(data.message);
-			        		$('#msg-alerta').show();
-			        	}
-			        	else{
-			        		$('#saldo').append(data.saldo);
-			        		$('#msg-alerta').hide();
-			        	}
-			            console.log(data);
-			        },
-			        error: function( jqXhr, textStatus, errorThrown ){
-				        console.log( errorThrown );
-				    }
-			    });
-			}
-		});
+	    $.ajax({
+	        url: 'http://saldobip.kinalef.cl/api/tarjeta/'+num_tarjeta,
+	        type: 'GET',
+	        dataType: 'json',
+	        success: function(data) {
+
+	        	$('#spinner').removeClass('active');
+
+	        	$('#respuesta').show();
+	        	
+	        	if(data.code != 200){
+	        		$('#msg-alerta').html(data.message);
+	        		$('#msg-alerta').show();
+	        	}
+	        	else{
+	        		$('#saldo').html(data.saldo);
+	        		$('#msg-alerta').hide();
+	        	}
+	            console.log(data);
+	        },
+	        error: function( jqXhr, textStatus, errorThrown ){
+	        	$('#spinner').removeClass('active');
+		        console.log( errorThrown );
+		    }
+	    });
+	}
+});
 

@@ -17,3 +17,7 @@ body > .grid {
 #content-respuesta{
 	min-height: 200px;
 }
+#spinner{
+	min-height: 50px;
+	margin-top: 20px;
+}
