@@ -26,7 +26,7 @@ $(document)
 		   	var num_tarjeta = $("#num_tarjeta" ).val();
 
 			    $.ajax({
-			        url: 'http://localhost:8000/api/tarjeta/'+num_tarjeta,
+			        url: 'http://saldobip.kinalef.cl/api/tarjeta/'+num_tarjeta,
 			        async : false,
 			        type: 'GET',
 			        dataType: 'json',
