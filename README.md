@@ -2,10 +2,12 @@
 
 ##API consulta de saldo
 
-Api que consulta el saldo de una tarjeta Bip! según su número de identificación
+API para consulta de saldo de una tarjeta Bip! según su número de identificación.
+####Datos obtenidos de la fuente oficial [tarjetabip.cl] (http://www.tarjetabip.cl)
 
-[http://saldobip.kinalef.cl/](http://saldobip.kinalef.cl/)
+La documentación se puede acceder en [saldobip.kinalef.cl](http://saldobip.kinalef.cl/)
+(Documentación generada con [apidocjs] (http://apidocjs.com/))
 
 ##Web de consumo de API (ejemplo de uso)
 
-[http://consultasaldo.kinalef.cl/] (http://consultasaldo.kinalef.cl/)
+[consultasaldo.kinalef.cl] (http://consultasaldo.kinalef.cl/)
