@@ -1,0 +1,19 @@
+body {
+  background-color: #ffffff;
+}
+body > .grid {
+  height: 100%;
+}
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 450px;
+}
+
+.ui.segment{
+	background-color: #f8f8f9;
+}
+#content-respuesta{
+	min-height: 200px;
+}
