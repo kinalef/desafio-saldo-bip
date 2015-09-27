@@ -1,0 +1,8 @@
+{
+  "name": "API consulta saldo Tarjeta Bip",
+  "version": "v1",
+  "description": "Documentación llamadas API",
+  "title": "Custom apiDoc browser title",
+  "url" : "https://api.github.com/v1"
+
+}
